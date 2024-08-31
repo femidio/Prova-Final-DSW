@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Cadastro de Disciplinas</h1>
+
+<form method="POST">
+    <label for="disciplina">Cadastre a nova disciplina:</label>
+    <input type="text" id="disciplina" name="disciplina" required>
+
+    <label for="semestre">Semestre associado:</label>
+    <select id="semestre" name="semestre">
+        <option value="1º semestre">1º semestre</option>
+        <option value="2º semestre">2º semestre</option>
+        <option value="3º semestre">3º semestre</option>
+        <option value="4º semestre">4º semestre</option>
+        <option value="5º semestre">5º semestre</option>
+        <option value="6º semestre">6º semestre</option>
+    </select>
+    
+    <button type="submit">Cadastrar</button>
+</form>
+
+<h2>Relação de disciplinas cadastradas</h2>
+<table>
+    <tr>
+        <th>Disciplina</th>
+        <th>Semestre</th>
+    </tr>
+    {% for disciplina in disciplinas %}
+    <tr>
+        <td>{{ disciplina.disciplina }}</td>
+        <td>{{ disciplina.semestre }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
